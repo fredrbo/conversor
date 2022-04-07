@@ -1,0 +1,63 @@
+<div class="container-fluid border">
+  <div class="row">
+    <div class="d-flex justify-content-center my-4">
+      <h1>
+        Conversor de Moedas
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <span> Converter de</span>
+      <select class="mx-2" (change)="getBid()" [(ngModel)]="to">
+        <option value="BRL">BRL</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+
+      <span>Para</span>
+      <select class="mx-2" (change)="getBid()" [(ngModel)]="from">
+        <option value="USD">USD</option>
+        <option value="BRL">BRL</option>
+        <option value="EUR">EUR</option>
+      </select>
+
+      <button class=" btn btn-dark" (click)="invert()">
+        Inverter
+      </button>
+
+    </div>
+
+    <div class="row mt-2">
+      <div class="d-flex justify-content-center">
+        <div>
+          <label>Valor em {{to}}</label>
+          <input [value]="value" type="number" [(ngModel)]="value" placeholder="Valor desejado">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="d-flex justify-content-center my-2">
+        <button *ngIf="to !== from  " class="btn btn-dark" (click)="convert()">
+        Converter
+      </button>
+
+        <div *ngIf="to === from" class="alert alert-danger">
+          Não é possivel fazer conversão na mesma moeda
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div>
+          <label>Conversão em {{from}}</label>
+          <input [value]="result" readonly [(ngModel)]="result" placeholder="Resultado">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
