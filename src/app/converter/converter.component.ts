@@ -10,9 +10,9 @@ export class ConverterComponent implements OnInit {
 
   constructor(private converterService: ConverterService) { }
 
-  value: number ;
-  currentValue: number;
-  result: number;
+  money: number ;
+  currentBid: number;
+  result: string;
 
   to: string = "USD";
   from: string = "BRL";
@@ -29,18 +29,18 @@ export class ConverterComponent implements OnInit {
   }
 
   convert() {
-    if (this.value == undefined){
+    if (this.money == undefined){
       alert(`Valor em ${this.to} não definido `)
     }else{
       this.getBid();
-      this.result = (this.value * this.currentValue);
+      this.result = (this.money * this.currentBid).toFixed(2);
     }
 }
 
   getBid(): void {
     this.converterService.getConvert(this.to, this.from).subscribe(
       data => {
-       this.currentValue =  data[0].bid
+       this.currentBid =  data[0].bid
       }
     )
   }

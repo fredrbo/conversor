@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="row">
+    <div class="d-flex justify-content-center my-4">
+      <h1>
+        Conversor Multiplo
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-center my-2">
+      <button class="btn btn-dark" (click)="convert()">Converter Todos</button>
+    </div>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>De:</th>
+        <th>Valores</th>
+        <th>Para:</th>
+        <th>Convertido</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor=" let item of data; let i = index">
+      <tr>
+        <th>
+          <select class="mx-2" (change)="getBid()" [(ngModel)]="to">
+            <option value="USD">USD</option>
+            <option value="BRL">BRL</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </th>
+        <th scope="row">
+          <input [(ngModel)]="item.value" type="number" placeholder="Valor">
+        </th>
+        <th>
+          <select class="mx-2" (change)="getBid()" [(ngModel)]="from">
+            <option value="USD">USD</option>
+            <option value="BRL">BRL</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </th>
+        <th scope="row">
+          <input [(ngModel)]="item.result" readonly type="number" placeholder="Valor">
+        </th>
+        <th><button class="btn btn-dark" (click)="delete(i)"> Deletar</button> </th>
+      </tr>
+    </tbody>
+    <button class="btn btn-dark" (click)="add()">Adicionar</button>
+  </table>
+</div>
+<i class="bi bi-trash"></i>

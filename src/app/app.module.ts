@@ -7,12 +7,16 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConverterComponent } from './converter/converter.component';
+import { HeaderComponent } from './header/header.component';
+import { MultConverterComponent } from './mult-converter/mult-converter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConverterComponent
-  ],
+    ConverterComponent,
+    HeaderComponent,
+    MultConverterComponent,
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
